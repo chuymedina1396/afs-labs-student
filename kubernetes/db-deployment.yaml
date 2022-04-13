@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deployment
+  name: db-deployment
   namespace: jmedina
   labels:
-    app: app
+    app: db
 spec:
   replicas: 1
   strategy:
@@ -12,17 +12,17 @@ spec:
   minReadySeconds: 20
   selector:
     matchLabels:
-      app: app
+      app: db
   template:
     metadata:
       labels:
-        app: app
+        app: db
     spec:
       containers:
       - envFrom:
         - secretRef:
             name: db-secret
-        name: app-deployment
-        image: harbor.dev.afsmtddso.com/jmedina-harbor-project/app@sha256:5f71d740dd8c1992c362e3f42f0711a0f0fdf76310fe1422b1ac226f3568f46a
+        name: db-deployment
+        image: harbor.dev.afsmtddso.com/jmedina-harbor-project/db@sha256:19da9d324aad6eb5246da4fc3cf3d79f6884de7a102a240184522f2466dbe25d
         ports:
-        - containerPort: 5000
+        - containerPort: 5432
