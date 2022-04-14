@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.5.4
 -- Dumped by pg_dump version 9.5.4
--- this is a simple comment and another
+-- this is a simple comment and another and another
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
